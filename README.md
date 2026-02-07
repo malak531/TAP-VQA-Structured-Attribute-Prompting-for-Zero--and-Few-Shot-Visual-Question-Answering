@@ -1,76 +1,40 @@
-
 # TAP-VQA: Structured Attribute Prompting for Zero- and Few-Shot Visual Question Answering
 
-## Overview
-
-TAP-VQA (Tree-based Attribute Prompting for VQA) is a research project exploring structured prompting strategies for improving zero-shot and few-shot generalization of Vision-Language Models (VLMs) on unseen multimodal datasets.
-
-Inspired by the ICLR 2025 paper *"Tree of Attributes Prompt Learning for Vision-Language Models"*, this project adapts the Tree of Attributes Prompt (TAP) framework from image classification to the Visual Question Answering (VQA) setting.
-
-We design structured, multi-step prompts that guide VLMs through systematic visual reasoning before generating answers.
+## Author
+Tong Ding, Wanhua Li, Zhongqi Miao, Hanspeter Pfister
 
 ---
 
-## Motivation
+## Problem Statement
 
-While modern Vision-Language Models achieve strong zero-shot and few-shot results, they often struggle with:
+Vision-Language Models (VLMs) have shown strong performance in zero-shot and few-shot Visual Question Answering (VQA). However, their ability to generalize to unseen datasets, domain-specific tasks, and complex multimodal reasoning scenarios remains limited.
 
-- Complex visual reasoning
-- Noisy real-world data
-- Domain-specific datasets (e.g., medical or educational VQA)
-- Unseen question distributions
-
-This project investigates whether structured attribute prompting can improve generalization performance across unseen domains.
+In many cases, VLMs struggle when handling noisy real-world images, educational content, or medical visual data. This project investigates whether structured prompting can improve generalization performance across such unseen domains.
 
 ---
 
-## Methodology
+## Project Idea
 
-Instead of directly asking a VLM a question about an image, TAP-VQA introduces:
+This project proposes TAP-VQA (Tree-based Attribute Prompting for VQA), a structured prompting framework inspired by the "Tree of Attributes Prompt Learning for Vision-Language Models" approach.
 
-1. **Hierarchical Attribute Decomposition**
-   - Object-level attributes
-   - Scene-level attributes
-   - Contextual cues
+Instead of directly prompting a model to answer a question about an image, TAP-VQA introduces hierarchical attribute decomposition and multi-step reasoning:
 
-2. **Multi-Step Structured Prompting**
-   - Step 1: Visual attribute extraction
-   - Step 2: Structured reasoning
-   - Step 3: Question-aware answer generation
+1. Extract relevant visual attributes.
+2. Organize them into a structured representation.
+3. Guide the model through reasoning before generating the final answer.
 
-3. **Zero-shot and Few-shot Evaluation**
-   - No fine-tuning
-   - Limited example prompting
-   - Cross-domain generalization testing
-
-Evaluation is conducted using **VLMEvalKit**.
+The goal is to evaluate whether structured attribute prompting improves zero-shot and few-shot generalization of VLMs across diverse VQA datasets.
 
 ---
 
-## Datasets
+## Brief Overview
 
-We evaluate TAP-VQA on diverse VQA datasets:
+This project will:
 
-- **VizWiz-VQA** (Real-world, low-quality images)
-- **TQA** (Textbook Question Answering - educational domain)
-- **VQA-RAD** (Medical Visual Question Answering)
+- Adapt the Tree of Attributes prompting method to the VQA task.
+- Evaluate performance on multiple unseen multimodal datasets.
+- Compare baseline prompting vs. structured attribute prompting.
+- Analyze generalization performance in zero-shot and few-shot settings.
 
-These datasets allow evaluation across noisy, educational, and medical domains.
-
----
-
-## Experimental Setup
-
-- Vision-Language Models 
-- Zero-shot evaluation
-- Few-shot prompting
-- Performance comparison:
-  - Baseline prompting
-  - TAP structured prompting
-
-Metrics:
-- Accuracy
-- Domain generalization performance
-- Error analysis
-
+The evaluation will be conducted using VLMEvalKit on datasets including VizWiz, TQA, and VQA-RAD.
 
